@@ -2,4 +2,8 @@
 *~
 *#
 :memory
+:test
 public/*
+env/*
+testproject/local_settings.py
+testproject/database.py
