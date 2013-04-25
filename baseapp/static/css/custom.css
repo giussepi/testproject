@@ -1,0 +1,9 @@
+span.login_error{
+    color: #FFFFFF; 
+    margin-right: 10px;
+}
+
+div.welcome_message{
+    padding-top: 10px;
+    text-align: right;
+}

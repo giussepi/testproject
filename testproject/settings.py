@@ -51,7 +51,7 @@ USE_I18N = True
 USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
-USE_TZ = True
+USE_TZ = False # True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
@@ -116,7 +116,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '%s../baseapp/templates' % BASEDIR
+    '%s/../baseapp/templates' % BASEDIR,
+    '%s/../registration/templates' % BASEDIR,
 )
 
 INSTALLED_APPS = (
@@ -131,6 +132,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'baseapp',
+    'registration',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -190,6 +192,21 @@ try:
 except ImportError:
     pass
 
-# LOGIN_REDIRECT_URL = '/savings/'
-# LOGIN_URL = '/savings/'
-# ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_URL = '/'
+
+# django-registrarion settings
+ACCOUNT_ACTIVATION_DAYS = 7
+
+# email server settings
+EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST = 'smtp.live.com'  # from hotmail, requires TLS and SSL
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'giussepexy@gmail.com'
+EMAIL_HOST_PASSWORD = 'passtemporal'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'giussepexy@gmail.com'
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
