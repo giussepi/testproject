@@ -3,6 +3,7 @@
 *#
 :memory
 :test
+nohup.out
 public/*
 env/*
 testproject/local_settings.py
