@@ -16,6 +16,7 @@ def prepare_deploy():
     push()
 
 def deploy():
+    test()
     code_dir = '~giuseppi/testproject'
     with settings(warn_only=True):
         if run("test -d %s" % code_dir).failed:
