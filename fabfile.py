@@ -28,4 +28,6 @@ def deploy():
         run("git pull")
         # run("source ../env/bin/activate && pip install -r requirements.txt")
 
-        run("source ../env/bin/activate && pip install -r requirements.txt && nohup python manage.py runserver 0.0.0.0:8000 >& /dev/null < /dev/null &")
+        # run("source ../env/bin/activate && pip install -r requirements.txt && nohup python manage.py runserver 0.0.0.0:8000 >& /dev/null < /dev/null &")
+
+        run("source ../env/bin/activate && nohup python manage.py runserver 0.0.0.0:8000 >& /dev/null < /dev/null &")
