@@ -21,9 +21,10 @@ def deploy():
         if run("test -d %s" % code_dir).failed:
             run("git clone git@github.com:giussepi/testproject.git {}".format(
                 code_dir))
-    with cd(code_dir):
+            run("virtualenv --distribute ../env")
+
+    with cd(code_dir):        
         run("git pull")
-    with cd(code_dir + 'testproject'):
-        with settings(warn_only=True):
-            if run("nohup ./manage.py runserver &").failed:
-                pass
+        run("source ../env/bin/activate && pip install -r requirements")
+
+        # run("source ../env/bin/activate && pip install -r requirements && nohup python manage.py runserver 0.0.0.0:8000 >& /dev/null < /dev/null &")
